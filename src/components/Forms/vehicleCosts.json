@@ -1,0 +1,63 @@
+[
+    {
+        "form_label": "Add Vehicle Costs",
+        "fields": [
+            {
+                "field_id": "price",
+                "field_label": "Vehicle cost",
+                "field_mandatory": "yes",
+                "field_placeholder": "Enter vehicle cost",
+                "field_type": "number",
+                "field_value": ""
+            },
+            {
+                "field_id": "downpayment",
+                "field_label": "Downpayment",
+                "field_mandatory": "yes",
+                "field_placeholder": "Enter downpayment",
+                "field_type": "number",
+                "field_value": ""
+            },
+            {
+                "field_id": "monthly_payment",
+                "field_label": "Monthly payment",
+                "field_mandatory": "yes",
+                "field_placeholder": "Enter monthly payment, 0 if you already own the vehicle",
+                "field_type": "number",
+                "field_value": ""
+            },
+            {
+                "field_id": "paid_yearly",
+                "field_label": "Paid yearly",
+                "field_mandatory": "yes",
+                "field_placeholder": "Enter yearly paid amount",
+                "field_type": "number",
+                "field_value": ""
+            },
+            {
+                "field_id": "insurance",
+                "field_label": "Insurance cost",
+                "field_mandatory": "yes",
+                "field_placeholder": "Enter yearly insurance cost",
+                "field_type": "number",
+                "field_value": ""
+            },
+            {
+                "field_id": "tyre_price",
+                "field_label": "Tyre cost",
+                "field_mandatory": "yes",
+                "field_placeholder": "Enter cost of 4 tyre replacement",
+                "field_type": "number",
+                "field_value": ""
+            },
+            {
+                "field_id": "maintenance",
+                "field_label": "Maintenance",
+                "field_mandatory": "yes",
+                "field_placeholder": "Enter maintenance costs up to 40,000 miles / 60,000km",
+                "field_type": "number",
+                "field_value": ""
+            }
+        ]
+    }
+]

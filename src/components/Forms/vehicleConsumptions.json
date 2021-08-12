@@ -1,0 +1,55 @@
+[
+    {
+        "form_label": "Add Vehicle Costs",
+        "fields": [
+            {
+                "field_id": "make_city",
+                "field_label": "make claimed city consumption",
+                "field_mandatory": "yes",
+                "field_placeholder": "Enter make claimed city consumption",
+                "field_type": "number",
+                "field_value": ""
+            },
+            {
+                "field_id": "make_mixed",
+                "field_label": "make claimed mixed consumption",
+                "field_mandatory": "yes",
+                "field_placeholder": "Enter make claimed mixed consumption",
+                "field_type": "number",
+                "field_value": ""
+            },
+            {
+                "field_id": "make_highway",
+                "field_label": "make claimed highway consumption",
+                "field_mandatory": "yes",
+                "field_placeholder": "Enter make claimed highway consumption",
+                "field_type": "number",
+                "field_value": ""
+            },
+            {
+                "field_id": "realistic_city",
+                "field_label": "Realistic city consumption",
+                "field_mandatory": "yes",
+                "field_placeholder": "Enter realistic city consumption",
+                "field_type": "number",
+                "field_value": ""
+            },
+            {
+                "field_id": "realistic_mixed",
+                "field_label": "Realistic mixed consumption",
+                "field_mandatory": "yes",
+                "field_placeholder": "Enter realistic mixed consumption",
+                "field_type": "number",
+                "field_value": ""
+            },
+            {
+                "field_id": "realistic_highway",
+                "field_label": "Realistic highway consumption",
+                "field_mandatory": "yes",
+                "field_placeholder": "Enter realistic highway consumption",
+                "field_type": "number",
+                "field_value": ""
+            }
+        ]
+    }
+]

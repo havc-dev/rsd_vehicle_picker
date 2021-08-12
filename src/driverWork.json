@@ -1,0 +1,79 @@
+[
+    {
+        "form_label": "Add your driving info",
+        "fields": [
+            {
+                "field_id": "make",
+                "field_label": "Make",
+                "field_mandatory": "yes",
+                "field_placeholder": "Enter vehicle make",
+                "field_type": "text",
+                "field_value": ""
+            },
+            {
+                "field_id": "model",
+                "field_label": "Model",
+                "field_mandatory": "yes",
+                "field_placeholder": "",
+                "field_type": "",
+                "field_value": ""
+            },
+            {
+                "field_id": "submodel",
+                "field_label": "",
+                "field_mandatory": "",
+                "field_placeholder": "",
+                "field_type": "",
+                "field_value": ""
+            },
+            {
+                "field_id": "year",
+                "field_label": "",
+                "field_mandatory": "",
+                "field_placeholder": "",
+                "field_type": "",
+                "field_value": ""
+            },
+            {
+                "field_id": "transmission",
+                "field_label": "",
+                "field_mandatory": "",
+                "field_placeholder": "",
+                "field_type": "",
+                "field_value": ""
+            },
+            {
+                "field_id": "motor_type",
+                "field_label": "",
+                "field_mandatory": "",
+                "field_placeholder": "",
+                "field_type": "",
+                "field_value": ""
+            },
+            {
+                "field_id": "motor_power",
+                "field_label": "",
+                "field_mandatory": "",
+                "field_placeholder": "",
+                "field_type": "",
+                "field_value": ""
+            },
+            {
+                "field_id": "warranty",
+                "field_label": "warranty",
+                "field_mandatory": "",
+                "field_placeholder": "",
+                "field_type": "",
+                "field_value": ""
+            },
+            {
+                "field_id": "tyre_type",
+                "field_label": "tyre type",
+                "field_mandatory": "",
+                "field_placeholder": "",
+                "field_type": "",
+                "field_value": ""
+            }
+        ]
+    }
+]
