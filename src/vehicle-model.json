@@ -1,0 +1,32 @@
+{ 
+    "vehicle": {
+        "model": {
+            "make": "VW",
+            "model": "Jetta",
+            "submodel": "Trendline",
+            "year": "2021",
+            "transmission": "Triptonic",
+            "motor_type": ["combustion", "hybrid", "mild_hybrid", "hydrogen"],
+            "motor_power": "150",
+            "warranty": "60000",
+            "tyre_type": "205/60/92H"
+        },
+        "costs": {
+            "price": 375500,
+            "downpayment": 100000,
+            "monthly_payment": 9000,
+            "paid_yearly": 108000,
+            "insurance": 15000,
+            "tyre_price": 20000,
+            "maintenance": 17200
+        },
+        "consumptions": {
+            "brand_consumption_city": 15.8,
+            "brand_consumption_highway": 21.5,
+            "brand_consumption_mixed": 17.8,
+            "real_consumption_city": 14,
+            "real_consumption_highway": 17,
+            "real_consumption_mixed": 18
+        }
+    }
+}

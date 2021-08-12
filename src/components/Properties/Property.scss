@@ -1,0 +1,20 @@
+@import "../../sass/Variables.scss";
+
+.car-properties {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 50%;
+  text-align: start;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  .car-property__header {
+    color: $color-Accent;
+    padding: 0;
+    text-align: start;
+    text-transform: capitalize;
+  }
+  .car-property__value {
+    color: $color-Neutral-100;
+  }
+}
