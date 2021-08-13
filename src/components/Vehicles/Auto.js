@@ -19,7 +19,6 @@ const Auto = (props) => {
   let vehicleFollowingYearsExpenses = (tyre_price + paid_yearly + maintenance)
   let yearOneRevenue = (anual_income - vehicleYearOneExpenses )
   let yearsToFollowRevenue = (anual_income - vehicleFollowingYearsExpenses)
-  console.log(anual_income)
   //states
   const [showVehicleInfo, setShowVehicleInfo] = useState(false);
   const [showVehicleDetails, setShowVehicleDetails] = useState(false);

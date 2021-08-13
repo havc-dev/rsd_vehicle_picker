@@ -1,8 +1,6 @@
 import Property from "../Properties/Property";
 
 const VehicleCosts = (props) => {
-  // const { price, insurance, tyre_price, maintenance} = props;
-  console.log(props);
   const { vehicle } = props;
   return (
     <div className="vehicle-costs">

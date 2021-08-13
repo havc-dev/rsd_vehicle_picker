@@ -2,11 +2,25 @@
 
 .App {
   background-color: $color-Neutral-900;
-  margin: 0;
+  margin: 0 auto;
   min-height: 100vh;
   padding: 0;
   color: $color-Neutral-100;
-  .App-title {
-    margin: 0;
+  width: 90%;
+  .App-header {
+    margin-bottom: 1rem;
+    border-bottom: 1px solid $color-Accent-900;
+    .App-header_title {
+      color: $color-Accent;
+      margin-top: 1rem;
+      text-align: center;
+    }
+  }
+  .App-section {
+    background-color: $color-Neutral-800;
+    border-radius: $border-Radius;
+    border: 1px solid $color-Neutral-700;
+    width: 95%;
+    margin: 1rem auto;
   }
 }

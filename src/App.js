@@ -1,26 +1,17 @@
-import "./App.css";
-import UnorderedList from "./components/Lists/UnorderedList";
-import Auto from "./components/Vehicles/Auto";
+import VehicleForm from "./components/Forms/VehicleForm";
 
-import test from "./vehicle-model.json";
-import worktest from "./trabajo_estimado.json";
-import VehicleInfo from "./components/Forms/VehicleInfo";
+import "./App.css";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>CAR PICKER</h1>
+        <h1 className="App-header_title">CAR PICKER</h1>
+        <h2>A tool to guide you through your next buy</h2>
       </header>
-      <section>
-        <VehicleInfo />
+      <section className="App-section">
+        <VehicleForm />
       </section>
-      <section>
-        <h2 className="App-title">Lista de autos:</h2>
-        <UnorderedList>
-          {}
-          <Auto vehicle={test.vehicle} work={worktest}/>
-        </UnorderedList></section>
     </div>
   );
 }

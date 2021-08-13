@@ -1,0 +1,192 @@
+[
+    {
+        "form_label": "Add Vehicle Info",
+        "form_id": "vehicleInfo",
+        "fields": [
+            {
+                "field_id": "make",
+                "field_label": "Make",
+                "field_mandatory": "yes",
+                "field_placeholder": "Enter make",
+                "field_type": "text",
+                "field_value": ""
+            },
+            {
+                "field_id": "model",
+                "field_label": "Model",
+                "field_mandatory": "yes",
+                "field_placeholder": "Enter model",
+                "field_type": "text",
+                "field_value": ""
+            },
+            {
+                "field_id": "submodel",
+                "field_label": "Submodel",
+                "field_mandatory": "yes",
+                "field_placeholder": "Enter submodel",
+                "field_type": "text",
+                "field_value": ""
+            },
+            {
+                "field_id": "year",
+                "field_label": "Year",
+                "field_mandatory": "yes",
+                "field_placeholder": "Enter vehicle year",
+                "field_type": "number",
+                "field_value": ""
+            },
+            {
+                "field_id": "transmission",
+                "field_label": "Tranmission",
+                "field_mandatory": "yes",
+                "field_placeholder": "Enter transmission",
+                "field_type": "text",
+                "field_value": ""
+            },
+            {
+                "field_id": "motor",
+                "field_label": "Motor type",
+                "field_value": "motor_type",
+                "field_mandatory": "yes",
+                "field_options": [
+                    {"option_label": "Combustion"},
+                    {"option_label": "Combustion Turbo"},
+                    {"option_label": "Mild Hybrid"},
+                    {"option_label": "Hybrid"},
+                    {"option_label": "Electric"},
+                    {"option_label": "Hydrogen"}
+                ],
+                "field_type": "select"
+            },
+            {
+                "field_id": "motor_power",
+                "field_label": "Motor horsepower",
+                "field_mandatory": "yes",
+                "field_placeholder": "Enter vehicle horsepower",
+                "field_type": "text",
+                "field_value": ""
+            },
+            {
+                "field_id": "warranty",
+                "field_label": "warranty",
+                "field_mandatory": "yes",
+                "field_placeholder": "Enter warranty",
+                "field_type": "text",
+                "field_value": ""
+            },
+            {
+                "field_id": "tire_type",
+                "field_label": "tire type",
+                "field_mandatory": "yes",
+                "field_placeholder": "Enter tire type",
+                "field_type": "text",
+                "field_value": ""
+            },
+            {
+                "field_id": "price",
+                "field_label": "Vehicle cost",
+                "field_mandatory": "yes",
+                "field_placeholder": "Enter vehicle cost",
+                "field_type": "number",
+                "field_value": ""
+            },
+            {
+                "field_id": "downpayment",
+                "field_label": "Downpayment",
+                "field_mandatory": "yes",
+                "field_placeholder": "Enter downpayment",
+                "field_type": "number",
+                "field_value": ""
+            },
+            {
+                "field_id": "monthly_payment",
+                "field_label": "Monthly payment",
+                "field_mandatory": "yes",
+                "field_placeholder": "Enter monthly payment, 0 if you already own the vehicle",
+                "field_type": "number",
+                "field_value": ""
+            },
+            {
+                "field_id": "paid_yearly",
+                "field_label": "Paid yearly",
+                "field_mandatory": "yes",
+                "field_placeholder": "Enter yearly paid amount",
+                "field_type": "number",
+                "field_value": ""
+            },
+            {
+                "field_id": "insurance",
+                "field_label": "Insurance cost",
+                "field_mandatory": "yes",
+                "field_placeholder": "Enter yearly insurance cost",
+                "field_type": "number",
+                "field_value": ""
+            },
+            {
+                "field_id": "tyre_price",
+                "field_label": "Tyre cost",
+                "field_mandatory": "yes",
+                "field_placeholder": "Enter cost of 4 tyre replacement",
+                "field_type": "number",
+                "field_value": ""
+            },
+            {
+                "field_id": "maintenance",
+                "field_label": "Maintenance",
+                "field_mandatory": "yes",
+                "field_placeholder": "Enter maintenance costs up to 40,000 miles / 60,000km",
+                "field_type": "number",
+                "field_value": ""
+            },
+            {
+                "field_id": "make_city",
+                "field_label": "make claimed city consumption",
+                "field_mandatory": "yes",
+                "field_placeholder": "Enter make claimed city consumption",
+                "field_type": "number",
+                "field_value": ""
+            },
+            {
+                "field_id": "make_mixed",
+                "field_label": "make claimed mixed consumption",
+                "field_mandatory": "yes",
+                "field_placeholder": "Enter make claimed mixed consumption",
+                "field_type": "number",
+                "field_value": ""
+            },
+            {
+                "field_id": "make_highway",
+                "field_label": "make claimed highway consumption",
+                "field_mandatory": "yes",
+                "field_placeholder": "Enter make claimed highway consumption",
+                "field_type": "number",
+                "field_value": ""
+            },
+            {
+                "field_id": "realistic_city",
+                "field_label": "Realistic city consumption",
+                "field_mandatory": "yes",
+                "field_placeholder": "Enter realistic city consumption",
+                "field_type": "number",
+                "field_value": ""
+            },
+            {
+                "field_id": "realistic_mixed",
+                "field_label": "Realistic mixed consumption",
+                "field_mandatory": "yes",
+                "field_placeholder": "Enter realistic mixed consumption",
+                "field_type": "number",
+                "field_value": ""
+            },
+            {
+                "field_id": "realistic_highway",
+                "field_label": "Realistic highway consumption",
+                "field_mandatory": "yes",
+                "field_placeholder": "Enter realistic highway consumption",
+                "field_type": "number",
+                "field_value": ""
+            }
+
+        ]
+    }
+]

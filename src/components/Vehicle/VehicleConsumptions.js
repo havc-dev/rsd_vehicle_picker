@@ -1,7 +1,6 @@
 import Property from "../Properties/Property";
 
 const VehicleConsumptions = (props) => {
-  console.log(props);
   const { vehicle } = props;
   return (
     <div>

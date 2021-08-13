@@ -9,6 +9,8 @@ body {
   padding: 0;
   font-size: 1rem;
   box-sizing: border-box;
+  font-family: $ff-Primary;
+  background-color: $color-Neutral-900;
 }
 
 h1,
@@ -26,6 +28,15 @@ ul,
 li {
   margin: 0;
   padding: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input {
+  font-family: $ff-Secondary;
 }
 h1 {
   font-size: $fs-20;

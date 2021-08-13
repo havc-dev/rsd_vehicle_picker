@@ -1,7 +1,7 @@
 import { useContext } from "react";
-import { FormContext } from "../FormContext";
+import { FormContext } from "../VehicleInfoFormContext";
 
-const Checkbox = ({ field_id, field_label, field_value }) => {
+const Checkbox = ({ field_id, field_label, field_value, }) => {
   const { handleChange } = useContext(FormContext);
   return (
     <div className="form-checkbox">

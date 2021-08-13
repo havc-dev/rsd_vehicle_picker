@@ -1,19 +1,17 @@
 import { useState, useEffect } from 'react';
-import { FormContext } from './FormContext';
+import { FormContext } from './VehicleInfoFormContext';
 
 import Element from './Element';
 
-import vehicleFormJson from './vehicleInfo.json'
+const VehicleInfo = ({vehicleJson, myVehicles, onSubmit}) => {
 
-const VehicleInfo = () => {
     const [ elements, setElements] = useState(null);
+
     useEffect(() => {
-        setElements(vehicleFormJson[0])
-    }, [])
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        console.log(elements)
-    }
+        setElements(vehicleJson[0])
+    }, [vehicleJson])
+
+    
     const handleChange = (id, event) => {
         const newElements = {...elements }
         newElements.fields.forEach(field => {
@@ -23,31 +21,29 @@ const VehicleInfo = () => {
                     case 'checkbox':
                         field['field_value'] = event.target.checked;
                         break;
-                
                     default:
                         field['field_value'] = event.target.value;
                         break;
                 }
-                
             }
             setElements(newElements)
         });
-        console.log(elements)
+        myVehicles.push(myVehicles)
     }
     
     const {fields, form_label} = elements ?? {}
     return (
         <FormContext.Provider value={{handleChange}}>
-        <>
-            <h3>{form_label}</h3>
-            <form>
-                {fields?
-                fields.map((field, i)=>
-                    <Element key={i} field={field} /> )
-                :null}
-                <button className="form-submit_btn" type="submit" onClick={(e)=>handleSubmit}>Submit</button>
-            </form>
-        </>
+            <div className="add_car-form">
+                <h3 className="form-title">{form_label}</h3>
+                <div>
+                    {fields?
+                    fields.map((field, i)=>
+                        <Element key={i} field={field} /> )
+                    :null}
+                    <button className="form-submit_btn" type="submit" onClick={onSubmit} >Submit</button>
+                </div>
+            </div>
         </FormContext.Provider>
     )
 }
