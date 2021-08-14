@@ -6,7 +6,7 @@ import VehicleConsumptions from "../Vehicle/VehicleConsumptions";
 
 import "./Auto.css";
 
-const Auto = (props) => {
+const Vehicle = (props) => {
   const { vehicle, work } = props;
   //making sure I dont get NaN
   let costs = vehicle.costs;
@@ -61,4 +61,4 @@ const Auto = (props) => {
   );
 };
 
-export default Auto;
+export default Vehicle;

@@ -16,12 +16,20 @@
       text-align: center;
     }
   }
-  .show_add-btns {
+  .section-btns {
     margin: 1em auto;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-between;
-    .btn-getSavedVehicles {
+    .btn-showSavedVehicles {
+      background-color: $color-Accent;
+      padding: 1em 3em;
+      font-weight: $fw-Black;
+      border: none;
+      border-radius: $border-Radius;
+      margin: 1em;
+    }
+    .btn-getExistingVehicles {
       background-color: $color-Accent;
       padding: 1em 3em;
       font-weight: $fw-Black;
