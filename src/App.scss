@@ -16,11 +16,33 @@
       text-align: center;
     }
   }
+  .show_add-btns {
+    margin: 1em auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .btn-getSavedVehicles {
+      background-color: $color-Accent;
+      padding: 1em 3em;
+      font-weight: $fw-Black;
+      border: none;
+      border-radius: $border-Radius;
+      margin: 1em;
+    }
+    .btn-addNewVehicle {
+      background-color: $color-Neutral-100;
+      padding: 1em 3em;
+      font-weight: $fw-Black;
+      border: none;
+      border-radius: $border-Radius;
+      margin: 1em;
+    }
+  }
   .App-section {
     background-color: $color-Neutral-800;
     border-radius: $border-Radius;
     border: 1px solid $color-Neutral-700;
     width: 95%;
-    margin: 1rem auto;
+    margin: 2rem auto;
   }
 }

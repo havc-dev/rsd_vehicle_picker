@@ -1,19 +1,13 @@
 @import '../../sass/Variables.scss';
-.add_car-form {
+
+.add_car-form_wrapper {
     width: 90%;
     display: flex;
     flex-direction: column;
     background-color: $color-Neutral-900;
-    border: 1px solid $color-Neutral-800;
+    border: 1px solid $color-Neutral-900;
     margin: 0 auto;
-    .form-title {
-        background-color: $color-Neutral-700;
-        margin-block: 1rem;
-    }
-    .form-vehicle-costs {
-        background-color: $color-Neutral-700;
-    }
-    .form-vehicle-consumption {
-        background-color: $color-Neutral-700;
-    }
+    background-color: $color-Neutral-700;
+    margin-block: 1rem;
+    border-radius: $border-Radius;
 }
