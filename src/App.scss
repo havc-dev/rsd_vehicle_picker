@@ -6,6 +6,7 @@
   min-height: 100vh;
   padding: 0;
   color: $color-Neutral-100;
+  font-size: $fs-16;
   width: 90%;
   .App-header {
     margin-bottom: 1rem;
@@ -19,8 +20,15 @@
   .section-btns {
     margin: 1em auto;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
+    width: 100%;
+    .btn-group {
+      display: flex;
+      flex-direction: column;
+      width: clamp(70px, 180px, 250px);
+      margin: 0 auto;
+    }
     .btn-showSavedVehicles {
       background-color: $color-Accent;
       padding: 1em 3em;

@@ -12,7 +12,7 @@ const VehicleInfoForm = (props) => {
         <FormContext.Provider value={{handleChange}}>
             <div className="add_car-form">
                 <h3 className="add_car-form_title">{form_label}</h3>
-                <form className="add_car-fields-wrapper"  onSubmit={(event) => handleSubmit}>
+                <form className="add_car-fields-wrapper"  onSubmit={handleSubmit}>
                     {fields?
                     fields.map((field, i)=>
                         <Element key={i} field={field} /> )

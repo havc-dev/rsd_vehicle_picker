@@ -55,7 +55,6 @@ const Vehicle = (props) => {
         <p>$ {yearOneRevenue}</p>
         <h4>Following years:</h4>
         <p>$ {yearsToFollowRevenue}</p>
-
       </div>
     </div>
   );
