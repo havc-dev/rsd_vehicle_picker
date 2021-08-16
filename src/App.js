@@ -6,24 +6,20 @@ import "./App.css";
 import VehicleInfoForm from "./components/Forms/vehicleInfo/VehicleInfoForm";
 import SavedVehiclesList from "./components/Vehicles/SavedVehiclesList";
 
-import formJson from "./jsons/vehicleInfo.json";
+import vehicleInfoForm from "./jsons/vehicleInfoForm.json";
 
   
 function App() {
   //Establish the Form and form elements
   const [elementsJson, setElementsJson] = useState(null);
-  // const [vehicles, setVehicles] = useState(null);
+  const [vehiclesList, setVehiclesList] = useState(null);
   useEffect(() => {
-    JSON.stringify(localStorage.setItem('form', formJson))
+    JSON.stringify(localStorage.setItem('form', vehicleInfoForm))
   }, [])
   useEffect(() => {
-    setElementsJson(formJson[0]);
+    setElementsJson(vehicleInfoForm[0]);
   }, []);
-
-
   let savedVehicles = JSON.parse(localStorage.getItem('vehicles'))
-
-
   //////// BUTTON TOGGLERS
   const [displayVehicles, setDisplayVehicles] = useState();
   const [showAddCarForm, setShowAddCarForm] = useState(false);
@@ -49,11 +45,15 @@ function App() {
         }
       }
       setElementsJson(newElements);
+      setVehiclesList(newElements);
     });
   };
+
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(formJson);
+    /////Get the form, create a new one, then 
+    /////Hide the new vehicle form
     setShowAddCarForm(false);
   };
 

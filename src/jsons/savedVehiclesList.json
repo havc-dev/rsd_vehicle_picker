@@ -1,0 +1,28 @@
+[
+    {
+        "vehicle": {
+            "make": "",
+            "model": "",
+            "submodel": "",
+            "year": "",
+            "price": "",
+            "transmission": "",
+            "motor_type": "",
+            "motor_power": "",
+            "warranty": "",
+            "tire_type": "",
+            "downpayment": "",
+            "monthly_payment": "",
+            "paid_yearly": "",
+            "insurance": "",
+            "tyre_price": "",
+            "maintenance": "",
+            "make_city": "",
+            "realistic_city": "",
+            "make_mixed": "",
+            "realistic_mixed": "",
+            "make_highway": "",
+            "realistic_highway": ""
+        }
+    }
+]
