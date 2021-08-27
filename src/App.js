@@ -1,110 +1,51 @@
-import { useState, useEffect } from "react";
-import { FormContext } from "./VehicleInfoFormContext";
+import { useState } from "react";
 
-import "./App.css";
+import VehiclesList from "./components/VehiclesList/VehiclesList";
+import Header from "./components/Header/Header";
+import Buttons from "./components/Buttons/Buttons";
+import AddVehicle from "./components/Forms/AddVehicle/AddVehicle";
+import AddDrivingInfo from "./components/Forms/AddDrivingInfo/AddDrivingInfo";
 
-import VehicleInfoForm from "./components/Forms/vehicleInfo/VehicleInfoForm";
-import SavedVehiclesList from "./components/Vehicles/SavedVehiclesList";
-
-import vehicleInfoForm from "./jsons/vehicleInfoForm.json";
-
-  
 function App() {
-  //Establish the Form and form elements
-  const [elementsJson, setElementsJson] = useState(null);
-  const [vehiclesList, setVehiclesList] = useState(null);
-  useEffect(() => {
-    JSON.stringify(localStorage.setItem('form', vehicleInfoForm))
-  }, [])
-  useEffect(() => {
-    setElementsJson(vehicleInfoForm[0]);
-  }, []);
-  let savedVehicles = JSON.parse(localStorage.getItem('vehicles'))
-  //////// BUTTON TOGGLERS
   const [displayVehicles, setDisplayVehicles] = useState();
-  const [showAddCarForm, setShowAddCarForm] = useState(false);
+  const [vehiclesList, setVehiclesList] = useState();
   const showSavedVehicles = () => {
+    let savedVehiclesList = JSON.parse(localStorage.getItem("vehiculosLocalStorage"))
+    setVehiclesList(savedVehiclesList)
     setDisplayVehicles(!displayVehicles);
   };
+
+  const [showAddCarForm, setShowAddCarForm] = useState(false);
   const showVehicleForm = () => {
     setShowAddCarForm(!showAddCarForm);
   };
-  //////// FORM HANDLERS
-  const handleChange = (id, event) => {
-    const newElements = { ...elementsJson };
-    newElements.fields.forEach((field) => {
-      const { field_type, field_id } = field;
-      if (id === field_id) {
-        switch (field_type) {
-          case "checkbox":
-            field["field_value"] = event.target.checked;
-            break;
-          default:
-            field["field_value"] = event.target.value;
-            break;
-        }
-      }
-      setElementsJson(newElements);
-      setVehiclesList(newElements);
-    });
+
+  const [showAddDrivingForm, setShowAddDrivingForm] = useState(false);
+  const showDrivingForm = () => {
+    setShowAddDrivingForm(!showAddDrivingForm);
   };
-
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    /////Get the form, create a new one, then 
-    /////Hide the new vehicle form
-    setShowAddCarForm(false);
-  };
-
+  const drivingInfo = JSON.parse(localStorage.getItem("savedDriving"))
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1 className="App-header_title">CAR PICKER</h1>
-        <h2>A tool to guide you through your next buy</h2>
-      </header>
+    <>
+    <div className="min-h-screen w-full mx-auto">
+      <Header />
 
-      <section className="section-btns">
-        <div className="btn-group">
-          <button className="btn-addNewVehicle" onClick={showVehicleForm}>
-            New vehicle
-          </button>
-        </div>
+      <main>
+      <Buttons showDrivingForm={showDrivingForm} showVehicleForm={showVehicleForm} showSavedVehicles={showSavedVehicles}/>
 
-        <div className="btn-group">
-          <button
-            className="btn-getExistingVehicles"
-            onClick={() => savedVehicles = localStorage.getItem('vehicles')}
-          >
-            Get saved vehicles
-          </button>
-
-        </div>
-
-        <div className="btn-group">
-          <button className="btn-showSavedVehicles" onClick={showSavedVehicles}>
-            Vehicle list
-          </button>
-        </div>
+      {showAddDrivingForm ?
+      <AddDrivingInfo showAddDrivingForm={showAddDrivingForm} setShowAddDrivingForm={setShowAddDrivingForm}/>
+      :null}
+      {showAddCarForm ?
+      <AddVehicle showAddCarForm={showAddCarForm} setShowAddCarForm={setShowAddCarForm}/>
+      :null}
+      <section className="w-full grid-flow-row bg-gray-700 flex rounded mb-4">
+        {displayVehicles && vehiclesList != null ?  <VehiclesList vehiclesList={vehiclesList} drivingInfo={drivingInfo} /> : null}
       </section>
-
-      <FormContext.Provider value={{ handleChange }}>
-        <section className="App-section">
-          {showAddCarForm ? (
-            <VehicleInfoForm
-              elementsJson={elementsJson}
-              setElementsJson={setElementsJson}
-              handleSubmit={handleSubmit}
-              handleChange={handleChange}
-            />
-          ) : null}
-        </section>
-      </FormContext.Provider>
-      <section className="App-section">
-        {displayVehicles ? <SavedVehiclesList  vehicles={savedVehicles}/> : null}
-      </section>
+      </main>
     </div>
+    </>
   );
 }
 
