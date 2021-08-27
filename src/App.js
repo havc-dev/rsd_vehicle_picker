@@ -1,27 +1,51 @@
-import "./App.css";
-import UnorderedList from "./components/Lists/UnorderedList";
-import Auto from "./components/Vehicles/Auto";
+import { useState } from "react";
 
-import test from "./vehicle-model.json";
-import worktest from "./trabajo_estimado.json";
-import VehicleInfo from "./components/Forms/VehicleInfo";
+import VehiclesList from "./components/VehiclesList/VehiclesList";
+import Header from "./components/Header/Header";
+import Buttons from "./components/Buttons/Buttons";
+import AddVehicle from "./components/Forms/AddVehicle/AddVehicle";
+import AddDrivingInfo from "./components/Forms/AddDrivingInfo/AddDrivingInfo";
 
 function App() {
+  const [displayVehicles, setDisplayVehicles] = useState();
+  const [vehiclesList, setVehiclesList] = useState();
+  const showSavedVehicles = () => {
+    let savedVehiclesList = JSON.parse(localStorage.getItem("vehiculosLocalStorage"))
+    setVehiclesList(savedVehiclesList)
+    setDisplayVehicles(!displayVehicles);
+  };
+
+  const [showAddCarForm, setShowAddCarForm] = useState(false);
+  const showVehicleForm = () => {
+    setShowAddCarForm(!showAddCarForm);
+  };
+
+  const [showAddDrivingForm, setShowAddDrivingForm] = useState(false);
+  const showDrivingForm = () => {
+    setShowAddDrivingForm(!showAddDrivingForm);
+  };
+  const drivingInfo = JSON.parse(localStorage.getItem("savedDriving"))
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>CAR PICKER</h1>
-      </header>
-      <section>
-        <VehicleInfo />
+    <>
+    <div className="min-h-screen w-full mx-auto">
+      <Header />
+
+      <main>
+      <Buttons showDrivingForm={showDrivingForm} showVehicleForm={showVehicleForm} showSavedVehicles={showSavedVehicles}/>
+
+      {showAddDrivingForm ?
+      <AddDrivingInfo showAddDrivingForm={showAddDrivingForm} setShowAddDrivingForm={setShowAddDrivingForm}/>
+      :null}
+      {showAddCarForm ?
+      <AddVehicle showAddCarForm={showAddCarForm} setShowAddCarForm={setShowAddCarForm}/>
+      :null}
+      <section className="w-full grid-flow-row bg-gray-700 flex rounded mb-4">
+        {displayVehicles && vehiclesList != null ?  <VehiclesList vehiclesList={vehiclesList} drivingInfo={drivingInfo} /> : null}
       </section>
-      <section>
-        <h2 className="App-title">Lista de autos:</h2>
-        <UnorderedList>
-          {}
-          <Auto vehicle={test.vehicle} work={worktest}/>
-        </UnorderedList></section>
+      </main>
     </div>
+    </>
   );
 }
 
