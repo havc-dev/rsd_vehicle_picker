@@ -97,7 +97,7 @@ const WeeklyIncome = ({ drivingInfo, vehicle, measurementSystem }) => {
             isMoney={true}
           />
           <p className="font-extrabold text-accent">
-            yearly balance: ${balance_text}
+            weekly balance: ${balance_text}
           </p>
         </div>
       </div>
