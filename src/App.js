@@ -28,7 +28,7 @@ function App() {
 
   return (
     <>
-    <div className="min-h-screen w-full mx-auto">
+    <div className="min-h-screen w-full mx-auto bg-gray-800">
       <Header />
 
       <main>
@@ -40,7 +40,7 @@ function App() {
       {showAddCarForm ?
       <AddVehicle showAddCarForm={showAddCarForm} setShowAddCarForm={setShowAddCarForm}/>
       :null}
-      <section className="w-full grid-flow-row bg-gray-700 flex rounded mb-4">
+      <section className="w-11/12 mx-auto flex flex-col rounded my-5">
         {displayVehicles && vehiclesList != null ?  <VehiclesList vehiclesList={vehiclesList} drivingInfo={drivingInfo} /> : null}
       </section>
       </main>

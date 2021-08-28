@@ -3,13 +3,13 @@ const Feature = ({text, value, units, isMoney}) => {
         value = parseFloat((parseFloat(value)).toFixed(2)).toLocaleString('en-US', { useGrouping: true });
         return (
             <div className="w-11/12 mx-auto">
-              <h5 className="text-white-dark font-bold text-left text-sm">{text}:</h5><h5 className="text-white-light font-bold text-right">${value}{units ? units : null}</h5>
+              <h4 className="capitalize">{text}:</h4><h5>${value}{units ? units : null}</h5>
             </div>
         )
     } else {
         return (
             <div className="w-11/12 mx-auto">
-              <h5 className="text-white-dark font-bold text-left text-sm">{text}:</h5><h5 className="text-white-light font-bold text-right">{value}{units ? units : null}</h5>
+              <h4 className="capitalize">{text}:</h4><h5>{value}{units ? units : null}</h5>
             </div>
         )
     }

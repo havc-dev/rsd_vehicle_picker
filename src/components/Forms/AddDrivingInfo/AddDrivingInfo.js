@@ -1,4 +1,5 @@
 import { useForm } from "react-hook-form";
+import SubmitButton from "../../Buttons/SubmitButton";
 // import { yupResolver } from "@hookform/resolvers/yup";
 // import * as yup from "yup";
 
@@ -28,7 +29,7 @@ import { useForm } from "react-hook-form";
 //   realistic_highway: yup.number().positive().min(1).max(100).required,
 // });
 
-const AddDrivingInfo = ({setShowAddDrivingForm, showAddDrivingForm}) => {
+const AddDrivingInfo = ({ setShowAddDrivingForm, showAddDrivingForm }) => {
   const {
     register,
     handleSubmit,
@@ -38,217 +39,141 @@ const AddDrivingInfo = ({setShowAddDrivingForm, showAddDrivingForm}) => {
   });
 
   const onSubmit = (data) => {
-    localStorage.setItem("savedDriving", JSON.stringify(data))
-    setShowAddDrivingForm(!showAddDrivingForm)
+    localStorage.setItem("savedDriving", JSON.stringify(data));
+    setShowAddDrivingForm(!showAddDrivingForm);
   };
 
   return (
-    <div className="mt-5 md:mt-0 md:col-span-2 flex flex-col flex-wrap">
+    <section>
       <h2>Your driving info</h2>
       <form onSubmit={handleSubmit(onSubmit)}>
-      <fieldset>
-      <legend>Platform</legend>
-        <div className="shadow sm:rounded-md sm:overflow-hidden">
-          <div className="grid grid-cols-3 gap-6">
-            <div className="col-span-3 sm:col-span-2">
-              <label
-                className="block text-sm font-medium text-gray-700 capitalize"
-                htmlFor="platform"
-              >
-                platform
-              </label>
-              <input
-                className="placeholder-purple-400 bg-purple-700 capitalize"
-                placeholder="platform you are afilliated"
-                defaultValue=""
-                {...register("platform")}
-              />
-              <p>{errors.platform?.message}</p>
-            </div>
+        <fieldset>
+          <legend>Platform</legend>
+          <div className="input_label-group">
+            <label htmlFor="platform">platform</label>
+            <input
+              placeholder="platform you are afilliated"
+              defaultValue=""
+              {...register("platform")}
+            />
+            <p>{errors.platform?.message}</p>
           </div>
           {/* field end */}
 
-          <div className="grid grid-cols-3 gap-6">
-            <div className="col-span-3 sm:col-span-2">
-              <label
-                className="block text-sm font-medium text-gray-700 capitalize"
-                htmlFor="platform_comission"
-              >
-                platform comission
-              </label>
-              <input
-                className="placeholder-purple-400 bg-purple-700 capitalize"
-                placeholder="vehicle platform comission"
-                defaultValue=""
-                {...register("platform_comission")}
-              />
-              <p>{errors.platform_comission?.message}</p>
-            </div>
+          <div className="input_label-group">
+            <label htmlFor="platform_comission">platform comission</label>
+            <input
+              placeholder="platform comission"
+              defaultValue=""
+              {...register("platform_comission")}
+            />
+            <p>{errors.platform_comission?.message}</p>
           </div>
           {/* field end */}
-        </div>
         </fieldset>
+
         <fieldset>
           <legend>Location</legend>
-          <div className="grid grid-cols-3 gap-6">
-            <div className="col-span-3 sm:col-span-2">
-              <label
-                className="block text-sm font-medium text-gray-700 capitalize"
-                htmlFor="taxes"
-              >
-                taxes
-              </label>
-              <input
-                className="placeholder-purple-400 bg-purple-700 capitalize"
-                placeholder="taxes percentage"
-                defaultValue=""
-                {...register("taxes")}
-              />
-              <p>{errors.taxes?.message}</p>
-            </div>
+          <div className="input_label-group">
+            <label htmlFor="taxes">taxes</label>
+            <input
+              placeholder="taxes percentage"
+              defaultValue=""
+              {...register("taxes")}
+            />
+            <p>{errors.taxes?.message}</p>
           </div>
           {/* field end */}
 
-          <div className="grid grid-cols-3 gap-6">
-            <div className="col-span-3 sm:col-span-2">
-              <label
-                className="block text-sm font-medium text-gray-700 capitalize"
-                htmlFor="fuel_price"
-              >
-                fuel_price
-              </label>
-              <input
-                className="placeholder-purple-400 bg-purple-700 capitalize"
-                placeholder="fuel_price"
-                defaultValue=""
-                {...register("fuel_price")}
-              />
-              <p>{errors.fuel_price?.message}</p>
-            </div>
+          <div className="input_label-group">
+            <label htmlFor="fuel_price">fuel price</label>
+            <input
+              placeholder="fuel_price"
+              defaultValue=""
+              {...register("fuel_price")}
+            />
+            <p>{errors.fuel_price?.message}</p>
           </div>
           {/* field end */}
         </fieldset>
+
         <fieldset>
-        <legend>How I work</legend>
-          <div className="grid grid-cols-3 gap-6">
-            <div className="col-span-3 sm:col-span-2">
-              <label
-                className="block text-sm font-medium text-gray-700 capitalize"
-                htmlFor="trips_hour"
-              >
-                trips per hour
-              </label>
-              <input
-                className="placeholder-purple-400 bg-purple-700 capitalize"
-                placeholder="trips per hour"
-                defaultValue=""
-                {...register("trips_hour")}
-              />
-              <p>{errors.trips_hour?.message}</p>
-            </div>
+          <legend>How I work</legend>
+          <div className="input_label-group">
+            <label className="form-label" htmlFor="trips_hour">
+              trips per hour
+            </label>
+            <input
+              className="placeholder-purple-400 bg-purple-700 capitalize"
+              placeholder="trips per hour"
+              defaultValue=""
+              {...register("trips_hour")}
+            />
+            <p>{errors.trips_hour?.message}</p>
           </div>
           {/* field end */}
 
-
-          <div className="grid grid-cols-3 gap-6">
-            <div className="col-span-3 sm:col-span-2">
-              <label
-                className="block text-sm font-medium text-gray-700 capitalize"
-                htmlFor="hours_day"
-              >
-                hours a day
-              </label>
-              <input
-                className="placeholder-purple-400 bg-purple-700 capitalize"
-                placeholder="hours a day working"
-                defaultValue=""
-                {...register("hours_day")}
-              />
-              <p>{errors.hours_day?.message}</p>
-            </div>
+          <div className="input_label-group">
+            <label htmlFor="hours_day">hours a day</label>
+            <input
+              placeholder="hours a day working"
+              defaultValue=""
+              {...register("hours_day")}
+            />
+            <p>{errors.hours_day?.message}</p>
           </div>
           {/* field end */}
 
-          <div className="grid grid-cols-3 gap-6">
-            <div className="col-span-3 sm:col-span-2">
-              <label
-                className="block text-sm font-medium text-gray-700 capitalize"
-                htmlFor="average_trip_distance"
-              >
-                average trip distance
-              </label>
-              <input
-                className="placeholder-purple-400 bg-purple-700 capitalize"
-                placeholder="average trip distance"
-                defaultValue=""
-                {...register("average_trip_distance")}
-              />
-              <p>{errors.average_trip_distance?.message}</p>
-            </div>
+          <div className="input_label-group">
+            <label htmlFor="average_trip_distance">average trip distance</label>
+            <input
+              placeholder="average trip distance"
+              defaultValue=""
+              {...register("average_trip_distance")}
+            />
+            <p>{errors.average_trip_distance?.message}</p>
           </div>
           {/* field end */}
 
-          <div className="grid grid-cols-3 gap-6">
-            <div className="col-span-3 sm:col-span-2">
-              <label
-                className="block text-sm font-medium text-gray-700 capitalize"
-                htmlFor="distance_between_services"
-              >
-                distance between services
-              </label>
-              <input
-                className="placeholder-purple-400 bg-purple-700 capitalize"
-                placeholder="distance between services"
-                defaultValue=""
-                {...register("distance_between_services")}
-              />
-              <p>{errors.distance_between_services?.message}</p>
-            </div>
+          <div className="input_label-group">
+            <label htmlFor="distance_between_services">
+              distance between services
+            </label>
+            <input
+              placeholder="distance between services"
+              defaultValue=""
+              {...register("distance_between_services")}
+            />
+            <p>{errors.distance_between_services?.message}</p>
           </div>
           {/* field end */}
 
-          <div className="grid grid-cols-3 gap-6">
-            <div className="col-span-3 sm:col-span-2">
-              <label
-                className="block text-sm font-medium text-gray-700 capitalize"
-                htmlFor="average_ticket"
-              >
-                average ticket
-              </label>
-              <input
-                className="placeholder-purple-400 bg-purple-700 capitalize"
-                placeholder="average ticket"
-                defaultValue=""
-                {...register("average_ticket")}
-              />
-              <p>{errors.average_ticket?.message}</p>
-            </div>
+          <div className="input_label-group">
+            <label htmlFor="average_ticket">average ticket</label>
+            <input
+              placeholder="average ticket"
+              defaultValue=""
+              {...register("average_ticket")}
+            />
+            <p>{errors.average_ticket?.message}</p>
           </div>
           {/* field end */}
 
-          <div className="grid grid-cols-3 gap-6">
-            <div className="col-span-3 sm:col-span-2">
-              <label
-                className="block text-sm font-medium text-gray-700 capitalize"
-                htmlFor="days_per_week"
-              >
-               days working per week
-              </label>
-              <input
-                className="placeholder-purple-400 bg-purple-700 capitalize"
-                placeholder="days working per week"
-                defaultValue=""
-                {...register("days_per_week")}
-              />
-              <p>{errors.days_per_week?.message}</p>
-            </div>
+          <div className="input_label-group">
+            <label htmlFor="days_per_week">days working per week</label>
+            <input
+              placeholder="days working per week"
+              defaultValue=""
+              {...register("days_per_week")}
+            />
+            <p>{errors.days_per_week?.message}</p>
           </div>
           {/* field end */}
+        </fieldset>
 
-          <input className="bg-purple-700 mt-4 px-3 py-1 w-11/12  mx-auto" type="submit" value="Guardar"/>
-          </fieldset>
+        <SubmitButton value="Save" />
       </form>
-    </div>
+    </section>
   );
 };
 

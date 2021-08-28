@@ -64,74 +64,68 @@ const WeeklyIncome = ({ drivingInfo, vehicle }) => {
   ).toLocaleString("en-US", { useGrouping: true });
   return (
     <>
-      <h3 className="font-extrabold text-accent">
-        Balance Anual: ${balance_text}
-      </h3>
-      <h3 className="font-extrabold text-accent">
-        Balance Anual sin contar enganche: ${balance_wo_downpayment_text}
-      </h3>
+      
       <div>
         <Feature
-          text="Ingreso bruto anual"
+          text="yearly gross income"
           value={annual_gross_income}
           isMoney={true}
           units=" mxn"
         />
         <Feature
-          text="Egresos anuales"
+          text="yearly total expenses"
           value={total_anual_expenses}
           isMoney={true}
           units=" mxn"
         />
         <Feature
-          text="Comisión de plataforma anual"
+          text="yearly platform comission"
           value={platform_comission_fee}
           isMoney={true}
           units=" mxn"
         />
         <Feature
-          text="Impuestos"
+          text="taxes"
           value={taxes_fee}
           isMoney={true}
           units=" mxn"
         />
         <Feature
-          text="Distancia recorrida anual"
-          value={total_annual_distance.toFixed(2)}
+          text="yearly distance covered"
+          value={(total_annual_distance.toFixed(2)).toLocaleString('en-US', { useGrouping: true })}
           isMoney={false}
           units="Km"
         />
-
         <Feature
-          text="Precio de combustible"
-          value={fuel_price}
-          isMoney={true}
-          units=" mxn"
-        />
-        <Feature
-          text="Costo de combustible anual"
+          text="yearly fuel cost"
           value={annual_fuel_cost}
           isMoney={true}
           units=" mxn"
         />
         <Feature
-          text="Costo de seguro anual"
+          text="yearly insurance cost"
           value={insurance}
           isMoney={true}
           units=" mxn"
         />
         <Feature
-          text="Costo de llantas anual"
+          text="Yearly tire cost"
           value={tire_price}
           isMoney={true}
           units=" mxn"
         />
         <Feature
-          text="Costo de mantenimiento anual"
+          text="Yearly maintenance cost"
           value={maintenance}
           isMoney={true}
           units=" mxn"
         />
+        <h3 className="font-extrabold text-accent">
+        <h3>Yearly balance:</h3> <h5>${balance_text}</h5>
+      </h3>
+      <h3 className="font-extrabold text-accent">
+        <h3>Yearly balance w/o downpayment:</h3> <h5>${balance_wo_downpayment_text}</h5>
+      </h3>
       </div>
     </>
   );
