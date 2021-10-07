@@ -44,17 +44,17 @@ const AddVehicle = ({ showAddCarForm, setShowAddCarForm }) => {
   const onSubmit = (data) => {
     setShowAddCarForm(false);
     let retrievedVehiclesList = JSON.parse(
-      localStorage.getItem("vehiculosLocalStorage")
+      localStorage.getItem("myVehicles")
     );
     if (retrievedVehiclesList === null) {
       console.log("test is null, creando vehiclesList...");
-      let vehiclesList = { vehicles: [] };
+      let vehiclesList =[];
       console.log("vehiclesList creado, agregando datos...");
       console.log(vehiclesList);
       vehiclesList.vehicles.push(data);
       console.log("datos actualizados, guardando...");
       localStorage.setItem(
-        "vehiculosLocalStorage",
+        "myVehicles",
         JSON.stringify(vehiclesList)
       );
       console.log("proceso terminado");
@@ -62,10 +62,10 @@ const AddVehicle = ({ showAddCarForm, setShowAddCarForm }) => {
       console.log("se han recuperado datos guardados");
       console.log(retrievedVehiclesList);
       console.log("procediendo a agregar el nuevo auto...");
-      retrievedVehiclesList.vehicles.push(data);
+      retrievedVehiclesList.push(data);
       console.log("datos agregados, guardando...");
       localStorage.setItem(
-        "vehiculosLocalStorage",
+        "myVehicles",
         JSON.stringify(retrievedVehiclesList)
       );
       console.log("proceso terminado con exito");

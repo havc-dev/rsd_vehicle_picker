@@ -1,6 +1,11 @@
+import { useContext } from "react";
+import AppContext from "../../context/appContext";
 import Feature from "../Features/Feature";
 
-const WeeklyIncome = ({ drivingInfo, vehicle, measurementSystem }) => {
+const WeeklyIncome = ({ vehicle, measurementSystem }) => {
+  const ctx = useContext(AppContext)
+  const {drivingInfo} = ctx
+
   const {
     platform_comission,
     taxes,
@@ -12,6 +17,7 @@ const WeeklyIncome = ({ drivingInfo, vehicle, measurementSystem }) => {
     average_ticket,
     days_per_week,
   } = drivingInfo;
+
   const {
     insurance,
     tire_price,
@@ -42,7 +48,7 @@ const WeeklyIncome = ({ drivingInfo, vehicle, measurementSystem }) => {
 
   return (
     <section>
-      <h3>Balance Semanal</h3>
+      <h4>Balance Semanal</h4>
       <div>
         <div className="income">
           <Feature
@@ -97,7 +103,7 @@ const WeeklyIncome = ({ drivingInfo, vehicle, measurementSystem }) => {
             isMoney={true}
           />
           <p className="font-extrabold text-accent">
-            weekly balance: ${balance_text}
+            Balance semanal: ${balance_text}
           </p>
         </div>
       </div>

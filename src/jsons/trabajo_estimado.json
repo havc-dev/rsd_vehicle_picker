@@ -1,7 +1,7 @@
   {
     "platform": "Uber",
-    "platform_comission": 0.25,
-    "taxes": 0.101,
+    "platform_comission": 25,
+    "taxes": 10.1,
     "fuel_price": 22.5,
     "trips_hour": 1.8,
     "average_ticket": 100,

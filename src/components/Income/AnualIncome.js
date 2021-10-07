@@ -21,6 +21,21 @@ const WeeklyIncome = ({ drivingInfo, vehicle }) => {
     monthly_payment,
     extra_yearly_payments,
   } = vehicle;
+  // const parsedDrivingInfo = Object.keys(drivingInfo).forEach(function(el){
+  //   drivingInfo[el] = parseFloat(drivingInfo[el])
+  // })
+  // console.log(parsedDrivingInfo)
+  // const {
+  //   platform_comission,
+  //   taxes,
+  //   fuel_price,
+  //   trips_hour,
+  //   hours_day,
+  //   average_trip_distance,
+  //   distance_between_services,
+  //   average_ticket,
+  //   days_per_week,
+  // } = parsedDrivingInfo;
 
   //Income
   const weekly_gross_income =
@@ -42,15 +57,15 @@ const WeeklyIncome = ({ drivingInfo, vehicle }) => {
   const total_anual_monthly_payments = monthly_payment * 12;
 
   const total_anual_expenses =
-    +annual_fuel_cost +
-    +insurance +
-    +tire_price +
-    +maintenance +
-    +taxes_fee +
-    +platform_comission_fee +
-    +downpayment +
-    +total_anual_monthly_payments +
-    +extra_yearly_payments;
+    annual_fuel_cost +
+    insurance +
+    tire_price +
+    maintenance +
+    taxes_fee +
+    platform_comission_fee +
+    downpayment +
+    total_anual_monthly_payments +
+    extra_yearly_payments;
 
   const balance =
     +annual_gross_income - +total_anual_expenses

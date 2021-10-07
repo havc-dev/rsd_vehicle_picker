@@ -1,51 +1,41 @@
 import { useState } from "react";
+import { Route, Switch } from "react-router-dom";
+import { AppContextProvider } from "./context/appContext";
 
-import VehiclesList from "./components/VehiclesList/VehiclesList";
 import Header from "./components/Header/Header";
-import Buttons from "./components/Buttons/Buttons";
-import AddVehicle from "./components/Forms/AddVehicle/AddVehicle";
-import AddDrivingInfo from "./components/Forms/AddDrivingInfo/AddDrivingInfo";
+import BottomNav from "./components/Nav/BottomNav";
+import Home from "./pages/Home";
+import MyDriving from "./pages/MyDriving";
+import MyVehicles from "./pages/MyVehicles";
 
 function App() {
-  const [displayVehicles, setDisplayVehicles] = useState();
-  const [vehiclesList, setVehiclesList] = useState();
-  const showSavedVehicles = () => {
-    let savedVehiclesList = JSON.parse(localStorage.getItem("vehiculosLocalStorage"))
-    setVehiclesList(savedVehiclesList)
-    setDisplayVehicles(!displayVehicles);
-  };
-
-  const [showAddCarForm, setShowAddCarForm] = useState(false);
-  const showVehicleForm = () => {
-    setShowAddCarForm(!showAddCarForm);
-  };
-
   const [showAddDrivingForm, setShowAddDrivingForm] = useState(false);
   const showDrivingForm = () => {
     setShowAddDrivingForm(!showAddDrivingForm);
   };
-  const drivingInfo = JSON.parse(localStorage.getItem("savedDriving"))
 
   return (
-    <>
-    <div className="min-h-screen w-full mx-auto bg-gray-800">
-      <Header />
-
-      <main>
-      <Buttons showDrivingForm={showDrivingForm} showVehicleForm={showVehicleForm} showSavedVehicles={showSavedVehicles}/>
-
-      {showAddDrivingForm ?
-      <AddDrivingInfo showAddDrivingForm={showAddDrivingForm} setShowAddDrivingForm={setShowAddDrivingForm}/>
-      :null}
-      {showAddCarForm ?
-      <AddVehicle showAddCarForm={showAddCarForm} setShowAddCarForm={setShowAddCarForm}/>
-      :null}
-      <section className="w-11/12 mx-auto flex flex-col rounded my-5">
-        {displayVehicles && vehiclesList != null ?  <VehiclesList vehiclesList={vehiclesList} drivingInfo={drivingInfo} /> : null}
-      </section>
-      </main>
-    </div>
-    </>
+    <AppContextProvider>
+      <div className='min-h-screen w-full mx-auto bg-gray-800'>
+        <Header />
+        <Switch>
+          <Route exact path='/'>
+            <Home />
+          </Route>
+          <Route path='/my-driving'>
+            <MyDriving
+              showAddDrivingForm={showAddDrivingForm}
+              setShowAddDrivingForm={setShowAddDrivingForm}
+              showDrivingForm={showDrivingForm}
+            />
+          </Route>
+          <Route exact path='/vehicles'>
+            <MyVehicles />
+          </Route>
+        </Switch>
+        <BottomNav />
+      </div>
+    </AppContextProvider>
   );
 }
 

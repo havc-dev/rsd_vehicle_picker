@@ -1,59 +1,40 @@
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
+import { useHistory } from "react-router-dom";
+import AppContext from "../../../context/appContext";
 import SubmitButton from "../../Buttons/SubmitButton";
-// import { yupResolver } from "@hookform/resolvers/yup";
-// import * as yup from "yup";
 
-// const schema = yup.object().shape({
-//   make: yup.string().required,
-//   model: yup.string().required,
-//   submodel: yup.string(),
-//   year: yup.number().positive().integer().min(1900).max(2100).required,
-//   transmission: yup.string().required,
-//   motor_type: yup.string().required,
-//   motor_power: yup.number().positive().min(10).max(2000),
-//   warranty: yup.string().required,
-//   tire_type: yup.string(),
-//   price: yup.number().positive().min(1000).required,
-//   downpayment: yup.number().positive().min(1000).required,
-//   monthly_payment: yup.number().positive().min(100).required,
-//   extra_payments_total: yup.number().positive().min(1000).required,
-//   paid_yearly: yup.number().positive().min(1000).required,
-//   insurance: yup.number().positive().min(100).required,
-//   tire_price: yup.number().positive().min(50).required,
-//   maintenance: yup.number().positive().min(50).required,
-//   make_city: yup.number().positive().min(1).max(100).required,
-//   realistic_city: yup.number().positive().min(1).max(100).required,
-//   make_mixed: yup.number().positive().min(1).max(100).required,
-//   realistic_mixed: yup.number().positive().min(1).max(100).required,
-//   make_highway: yup.number().positive().min(1).max(100).required,
-//   realistic_highway: yup.number().positive().min(1).max(100).required,
-// });
-
-const AddDrivingInfo = ({ setShowAddDrivingForm, showAddDrivingForm }) => {
+const AddDrivingInfo = () => {
+  const [loading, setLoading] = useState(false)
+  const ctx = useContext(AppContext)
+  const {setEditDrivingData, editDrivingData, drivingInfo, } = ctx
+  const history = useHistory()
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({
-    // resolver: yupResolver(schema),
-  });
+  } = useForm();
 
   const onSubmit = (data) => {
-    localStorage.setItem("savedDriving", JSON.stringify(data));
-    setShowAddDrivingForm(!showAddDrivingForm);
+    setLoading(true)
+    localStorage.setItem("myDriving", JSON.stringify(data));
+
+    setEditDrivingData(!editDrivingData);
+    setLoading(false)
+    history.push("/vehicles")
   };
 
   return (
-    <section>
-      <h2>Your driving info</h2>
+    <section className="pb-20">
+      <h2>Mi manejo</h2>
       <form onSubmit={handleSubmit(onSubmit)}>
         <fieldset>
-          <legend>Platform</legend>
+          <legend>Plataforma</legend>
           <div className="input_label-group">
-            <label htmlFor="platform">platform</label>
+            <label htmlFor="platform">plataforma:</label>
             <input
-              placeholder="platform you are afilliated"
-              defaultValue=""
+              placeholder="Ejemplo: Uber"
+              defaultValue={drivingInfo.platform}
               {...register("platform")}
             />
             <p>{errors.platform?.message}</p>
@@ -61,10 +42,10 @@ const AddDrivingInfo = ({ setShowAddDrivingForm, showAddDrivingForm }) => {
           {/* field end */}
 
           <div className="input_label-group">
-            <label htmlFor="platform_comission">platform comission</label>
+            <label htmlFor="platform_comission">Comisión de la plataforma:</label>
             <input
-              placeholder="platform comission"
-              defaultValue=""
+              placeholder="Ejemplo: 25"
+              defaultValue={drivingInfo.platform_comission}
               {...register("platform_comission")}
             />
             <p>{errors.platform_comission?.message}</p>
@@ -73,12 +54,12 @@ const AddDrivingInfo = ({ setShowAddDrivingForm, showAddDrivingForm }) => {
         </fieldset>
 
         <fieldset>
-          <legend>Location</legend>
+          <legend>Ubicación:</legend>
           <div className="input_label-group">
-            <label htmlFor="taxes">taxes</label>
+            <label htmlFor="taxes">% de impuestos:</label>
             <input
-              placeholder="taxes percentage"
-              defaultValue=""
+              placeholder="Ejemplo: 15"
+              defaultValue={drivingInfo.taxes}
               {...register("taxes")}
             />
             <p>{errors.taxes?.message}</p>
@@ -86,10 +67,10 @@ const AddDrivingInfo = ({ setShowAddDrivingForm, showAddDrivingForm }) => {
           {/* field end */}
 
           <div className="input_label-group">
-            <label htmlFor="fuel_price">fuel price</label>
+            <label htmlFor="fuel_price">precio de Combustible:</label>
             <input
-              placeholder="fuel_price"
-              defaultValue=""
+              placeholder="Ejemplo: 22.5"
+              defaultValue={drivingInfo.fuel_price}
               {...register("fuel_price")}
             />
             <p>{errors.fuel_price?.message}</p>
@@ -98,15 +79,15 @@ const AddDrivingInfo = ({ setShowAddDrivingForm, showAddDrivingForm }) => {
         </fieldset>
 
         <fieldset>
-          <legend>How I work</legend>
+          <legend>Cómo trabajo:</legend>
           <div className="input_label-group">
             <label className="form-label" htmlFor="trips_hour">
-              trips per hour
+              viajes por hora:
             </label>
             <input
               className="placeholder-purple-400 bg-purple-700 capitalize"
-              placeholder="trips per hour"
-              defaultValue=""
+              placeholder="Ejemplo: 5.7"
+              defaultValue={drivingInfo.trips_hour}
               {...register("trips_hour")}
             />
             <p>{errors.trips_hour?.message}</p>
@@ -114,10 +95,10 @@ const AddDrivingInfo = ({ setShowAddDrivingForm, showAddDrivingForm }) => {
           {/* field end */}
 
           <div className="input_label-group">
-            <label htmlFor="hours_day">hours a day</label>
+            <label htmlFor="hours_day">horas al dia:</label>
             <input
-              placeholder="hours a day working"
-              defaultValue=""
+              placeholder="Ejemplo: 8.5"
+              defaultValue={drivingInfo.hours_day}
               {...register("hours_day")}
             />
             <p>{errors.hours_day?.message}</p>
@@ -125,10 +106,10 @@ const AddDrivingInfo = ({ setShowAddDrivingForm, showAddDrivingForm }) => {
           {/* field end */}
 
           <div className="input_label-group">
-            <label htmlFor="average_trip_distance">average trip distance</label>
+            <label htmlFor="average_trip_distance">Distancia promedio viaje</label>
             <input
-              placeholder="average trip distance"
-              defaultValue=""
+              placeholder="Ejemplo: 8.5"
+              defaultValue={drivingInfo.average_trip_distance}
               {...register("average_trip_distance")}
             />
             <p>{errors.average_trip_distance?.message}</p>
@@ -137,11 +118,11 @@ const AddDrivingInfo = ({ setShowAddDrivingForm, showAddDrivingForm }) => {
 
           <div className="input_label-group">
             <label htmlFor="distance_between_services">
-              distance between services
+              distancia entre viajes:
             </label>
             <input
-              placeholder="distance between services"
-              defaultValue=""
+              placeholder="Ejemplo: 1.9"
+              defaultValue={drivingInfo.distance_between_services}
               {...register("distance_between_services")}
             />
             <p>{errors.distance_between_services?.message}</p>
@@ -149,10 +130,10 @@ const AddDrivingInfo = ({ setShowAddDrivingForm, showAddDrivingForm }) => {
           {/* field end */}
 
           <div className="input_label-group">
-            <label htmlFor="average_ticket">average ticket</label>
+            <label htmlFor="average_ticket">Ticket Promedio:</label>
             <input
-              placeholder="average ticket"
-              defaultValue=""
+              placeholder="Ejemplo: 100"
+              defaultValue={drivingInfo.average_ticket}
               {...register("average_ticket")}
             />
             <p>{errors.average_ticket?.message}</p>
@@ -160,18 +141,18 @@ const AddDrivingInfo = ({ setShowAddDrivingForm, showAddDrivingForm }) => {
           {/* field end */}
 
           <div className="input_label-group">
-            <label htmlFor="days_per_week">days working per week</label>
+            <label htmlFor="days_per_week">Dias trabajados por semana</label>
             <input
-              placeholder="days working per week"
-              defaultValue=""
+              placeholder="Ejemplo: 6.5"
+              defaultValue={drivingInfo.days_per_week}
               {...register("days_per_week")}
             />
             <p>{errors.days_per_week?.message}</p>
           </div>
           {/* field end */}
         </fieldset>
-
-        <SubmitButton value="Save" />
+        {loading && <p>Cargando...</p>}
+        <SubmitButton value="Guardar" />
       </form>
     </section>
   );
